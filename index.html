@@ -32,15 +32,31 @@
     <div class="container">
       <div id="add-member-section" class="py-5">
         <h2 class="h1 text-center mb-5">Add Member</h2>
-        <form action="" class="row g-3">
+        <form id="add-member-form" class="row g-3">
           <div class="col-sm-6 col-md-3">
-            <input type="text" class="form-control" required value="Name" />
-          </div>
-          <div class="col-sm-6 col-md-3">
-            <input type="text" class="form-control" required value="Role" />
-          </div>
-          <div class="col-sm-6 col-md-3">
+            <label for="input-name">Nome e Cognome</label>
             <input
+              id="input-name"
+              type="text"
+              class="form-control"
+              required
+              value="Name"
+            />
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <label for="input-role">Role</label>
+            <input
+              id="input-role"
+              type="text"
+              class="form-control"
+              required
+              value="Role"
+            />
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <label for="input-email">Email</label>
+            <input
+              id="input-email"
               type="email"
               class="form-control"
               required
@@ -48,7 +64,14 @@
             />
           </div>
           <div class="col-sm-6 col-md-3">
-            <input type="text" class="form-control" required value="img" />
+            <label for="input-img">Image</label>
+            <input
+              id="input-img"
+              type="text"
+              class="form-control"
+              required
+              value="./img/female1.png"
+            />
           </div>
           <div class="col-12 text-center mt-5">
             <button class="btn btn-primary">Add member</button>

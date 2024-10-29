@@ -41,7 +41,7 @@ const printMemberCards = (grid, members) => {
   let cardsHtml = ``;
   members.forEach((member) => {
     cardsHtml += `<div class="col">
-        <div class="card">
+        <div class="card h-100">
         <img src="./${member.img}" class="card-img-top" alt="..." />
         <div class="card-body">
         <h5 class="card-title">${member.name}</h5>
@@ -58,5 +58,23 @@ const printMemberCards = (grid, members) => {
 // Recupero il container in cui stampare le cards
 const cardsContainer = document.getElementById("grid-container");
 
+// Recupero il form
+const addMemberForm = document.getElementById("add-member-form");
+
 // Invoco la funzione che stampa le cards
 printMemberCards(cardsContainer, teamMembers);
+
+addMemberForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("input-name").value;
+  const role = document.getElementById("input-role").value;
+  const email = document.getElementById("input-email").value;
+  const img = document.getElementById("input-img").value;
+
+  console.log(name, role, email, img);
+
+  teamMembers.push({ name, role, email, img });
+
+  printMemberCards(cardsContainer, teamMembers);
+});
