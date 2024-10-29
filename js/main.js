@@ -36,3 +36,21 @@ const teamMembers = [
     img: "img/female3.png",
   },
 ];
+
+const cardsContainer = document.getElementById("grid-container");
+
+let cardsHtml = ``;
+teamMembers.forEach((member) => {
+  cardsHtml += `<div class="col">
+    <div class="card">
+      <img src="./${member.img}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">${member.name}</h5>
+        <h6 class="card-subtitle fw-light">${member.role}</h6>
+        <a class="card-text" href="#">${member.email}</a>
+      </div>
+    </div>
+  </div>`;
+});
+
+cardsContainer.innerHTML = cardsHtml;
