@@ -81,5 +81,5 @@ const addMemberForm = document.getElementById("add-member-form");
 // Invoco la funzione che stampa le cards
 printMemberCards(cardsContainer, teamMembers);
 
-// All'invio del form
+// All'invio del form creo la nuova card
 addMemberForm.addEventListener("submit", addMemberHandler);
