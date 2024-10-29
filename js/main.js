@@ -37,10 +37,8 @@ const teamMembers = [
   },
 ];
 
-const printMemberCards = (grid, members) => {
-  let cardsHtml = ``;
-  members.forEach((member) => {
-    cardsHtml += `<div class="col">
+const generateMemberCard = (member) => {
+  const memberCard = `<div class="col">
         <div class="card h-100">
         <img src="./${member.img}" class="card-img-top" alt="..." />
         <div class="card-body">
@@ -50,9 +48,28 @@ const printMemberCards = (grid, members) => {
         </div>
         </div>
         </div>`;
+
+  return memberCard;
+};
+
+const printMemberCards = (grid, members) => {
+  let cardsHtml = ``;
+  members.forEach((member) => {
+    cardsHtml += generateMemberCard(member);
   });
 
   grid.innerHTML = cardsHtml;
+};
+
+const addMemberHandler = () => {
+  const name = document.getElementById("input-name").value.trim();
+  const role = document.getElementById("input-role").value.trim();
+  const email = document.getElementById("input-email").value.trim();
+  const img = document.getElementById("input-img").value.trim();
+
+  teamMembers.push({ name, role, email, img });
+
+  printMemberCards(cardsContainer, teamMembers);
 };
 
 // Recupero il container in cui stampare le cards
@@ -64,17 +81,5 @@ const addMemberForm = document.getElementById("add-member-form");
 // Invoco la funzione che stampa le cards
 printMemberCards(cardsContainer, teamMembers);
 
-addMemberForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const name = document.getElementById("input-name").value;
-  const role = document.getElementById("input-role").value;
-  const email = document.getElementById("input-email").value;
-  const img = document.getElementById("input-img").value;
-
-  console.log(name, role, email, img);
-
-  teamMembers.push({ name, role, email, img });
-
-  printMemberCards(cardsContainer, teamMembers);
-});
+// All'invio del form
+addMemberForm.addEventListener("submit", addMemberHandler);
