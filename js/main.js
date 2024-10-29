@@ -37,20 +37,26 @@ const teamMembers = [
   },
 ];
 
-const cardsContainer = document.getElementById("grid-container");
-
-let cardsHtml = ``;
-teamMembers.forEach((member) => {
-  cardsHtml += `<div class="col">
-    <div class="card">
-      <img src="./${member.img}" class="card-img-top" alt="..." />
-      <div class="card-body">
+const printMemberCards = (grid, members) => {
+  let cardsHtml = ``;
+  members.forEach((member) => {
+    cardsHtml += `<div class="col">
+        <div class="card">
+        <img src="./${member.img}" class="card-img-top" alt="..." />
+        <div class="card-body">
         <h5 class="card-title">${member.name}</h5>
         <h6 class="card-subtitle fw-light">${member.role}</h6>
         <a class="card-text" href="#">${member.email}</a>
-      </div>
-    </div>
-  </div>`;
-});
+        </div>
+        </div>
+        </div>`;
+  });
 
-cardsContainer.innerHTML = cardsHtml;
+  grid.innerHTML = cardsHtml;
+};
+
+// Recupero il container in cui stampare le cards
+const cardsContainer = document.getElementById("grid-container");
+
+// Invoco la funzione che stampa le cards
+printMemberCards(cardsContainer, teamMembers);
