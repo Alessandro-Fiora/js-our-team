@@ -61,7 +61,8 @@ const printMemberCards = (grid, members) => {
   grid.innerHTML = cardsHtml;
 };
 
-const addMemberHandler = () => {
+const addMemberHandler = (e) => {
+  e.preventDefault();
   const name = document.getElementById("input-name").value.trim();
   const role = document.getElementById("input-role").value.trim();
   const email = document.getElementById("input-email").value.trim();
